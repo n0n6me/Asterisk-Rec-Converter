@@ -28,14 +28,14 @@ def convert(contextPath,fromDatePath,sourceFile,desFile):
 	    print "~~~~~~~~~~~~~~~~~~"
 	    try:
 	    	#pass
-	    	AudioSegment.from_wav(sourceFilePath).export(mp3FilePath, format="mp3")
+	    	AudioSegment.from_wav(sourceFilePath).export(mp3FilePath, format="mp3", parameters=["-q:a", "3"])
 	    	#os.unlink(sourceFilePath)
 	    except:
 	    	if os.path.exists(destRootPath + contextPath + fromDatePath):
 	    		print 'allert!'
 	    	else:
 	    		os.makedirs(destRootPath + contextPath + fromDatePath)
-	    		AudioSegment.from_wav(sourceFilePath).export(mp3FilePath, format="mp3")
+	    		AudioSegment.from_wav(sourceFilePath).export(mp3FilePath, format="mp3", parameters=["-q:a", "3"])
 
 
 def prepare(file):
